@@ -9,13 +9,14 @@
 using namespace std;
 
 const pair<int, int> MAP_SIZE = make_pair(50, 50); // including boundary
-const int NUM_FOOD = 3; // food each round
+const int NUM_FOOD = 2; // food each round
+const int SCORE_RANGE = 2; // range of score of each food, from 1 to SCORE_RANGE
 
 int main()
 {
     vector<pair<int, int>> barriers;
 
-    // position of barrier, to lazy to make it random, can modify it urself
+    // position of barrier, to lazy to make it random, can modify it yourself
     barriers.push_back(make_pair(6, 6));
     barriers.push_back(make_pair(14, 10));
     barriers.push_back(make_pair(20, 11));
@@ -64,8 +65,8 @@ int main()
 
     std::random_device rd;
     std::default_random_engine gen = std::default_random_engine(rd());
-    std::uniform_int_distribution<int> dis(1, 48);
-    std::uniform_int_distribution<int> foodScoreDis(1, 10);
+    std::uniform_int_distribution<int> dis(1, MAP_SIZE.first - 2);
+    std::uniform_int_distribution<int> foodScoreDis(1, SCORE_RANGE);
 
     string filename = "";
     for (size_t i = 0; i < 100; i++) {
