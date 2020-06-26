@@ -68,7 +68,7 @@ vector<vector<int>> generate_map(vector<vector<int>> map[NUM_MAP + 1], int mapin
     //尋找地圖得分點位置
     for (int m = 0; m < map[mapindex].size(); m++) {
         for (int n = 0; n < map[mapindex][m].size(); n++) {
-            if (map[mapindex][m][n] != 0 && map[mapindex][m][n] != 0) {
+            if (map[mapindex][m][n] != 0 && map[mapindex][m][n] != -1) {
                 row = m;
                 col = n;
                 positionList.push_back(make_tuple(m, n));
@@ -197,6 +197,7 @@ vector<vector<int>> generate_map(vector<vector<int>> map[NUM_MAP + 1], int mapin
             }
         }
     }
+
     return tempMap;
 }
 
